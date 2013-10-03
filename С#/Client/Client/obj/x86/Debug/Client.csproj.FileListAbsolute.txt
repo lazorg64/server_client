@@ -1,0 +1,22 @@
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\Client\Client\bin\Debug\Client.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\Client\Client\bin\Debug\Client.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Downloads\Client\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\lazorg\Downloads\Client\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\lazorg\Downloads\Client\Client\Client\bin\Debug\Client.exe
+C:\Users\lazorg\Downloads\Client\Client\Client\bin\Debug\Client.pdb
+C:\Users\lazorg\Downloads\Client\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\lab\Client\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\Lenovo\Desktop\lab\Client\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\Client\Client\bin\Debug\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\Client\Client\bin\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\LEXA\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\Lenovo\Desktop\LEXA\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\Lenovo\Desktop\LEXA\Client\Client\bin\Debug\Client.exe
+C:\Users\Lenovo\Desktop\LEXA\Client\Client\bin\Debug\Client.pdb
+C:\Users\Lenovo\Desktop\LEXA\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
