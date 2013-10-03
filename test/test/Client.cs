@@ -78,7 +78,7 @@ namespace test
 			}
 			else
 			{
-				Console.WriteLine("NOT OK");
+				Console.WriteLine("Не авторизованный пользователь!");
 				Client.Close();
 			}
    
