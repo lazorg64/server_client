@@ -12,7 +12,7 @@ namespace test
 		private int id;
 		public static List<Message> MessageBuffer = new List<Message>();
 		public static List<String> Users = new List<string>();
-		String username;
+		private String username;
 	    public Client (TcpClient Client)
 		{
 			counter++;
@@ -112,11 +112,23 @@ namespace test
 		}
 
 
-		public static void readmail (TcpClient Client)
+		public void readmail (TcpClient Client)
 		{
-			Byte[] buffer = new byte[256];
-			buffer = System.Text.Encoding.UTF8.GetBytes("<message>Почта тут</message>");
-			Client.GetStream().Write(buffer,0,buffer.Length);
+            Byte[] buffer;
+            foreach (Message m in MessageBuffer)
+            {
+                if (m.getto() == username)
+                {
+                    buffer = new byte[256];
+                    buffer = System.Text.Encoding.UTF8.GetBytes("<message>" + m.getmessage() + "</message><from>" + m.getfrom() + "</from>");
+                    Client.GetStream().Write(buffer, 0, buffer.Length);
+                    buffer = new byte[256];
+                }
+            }
+
+            buffer = new byte[256];
+            buffer = System.Text.Encoding.UTF8.GetBytes("</read>");
+            Client.GetStream().Write(buffer, 0, buffer.Length);
 		}
 
 		//Все что ниже - парсинг полученных данных

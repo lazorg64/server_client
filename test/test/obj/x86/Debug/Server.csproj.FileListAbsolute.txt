@@ -10,3 +10,8 @@ C:\Users\lazorg\Downloads\test\test\test\bin\Debug\test.pdb
 C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.exe
 C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache

@@ -15,7 +15,9 @@ namespace Client
 
 
             Console.WriteLine("Клиент запущен!");
-            client = new TcpClient("127.0.0.1", 1235);
+            Console.WriteLine("Укажите адрес сервера:");
+            String server_addr = Console.ReadLine();
+            client = new TcpClient(server_addr, 1235);
             Console.WriteLine("Зарегистрироваться --- 1");
             Console.WriteLine("Войти ---------------- 2");
             Console.WriteLine("Выйти ---------------- 3");
@@ -24,30 +26,41 @@ namespace Client
             switch (caseSwitch)
             {
                 case 1:
-                string login,passw = "empty";
-                Console.WriteLine("Логин :");
-                login = Console.ReadLine();
-                reg(login,passw);
-                act();
+                    string login,passw;
+                    Console.WriteLine("Логин: ");
+                    login = Console.ReadLine();
+                    Console.WriteLine("Пароль: ");
+                    passw = Console.ReadLine();
+                    reg(login,passw);
+                    if (getcheck())
+                    {
+                        act();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка авторизации!");
+                    }
                 break;
 
                 case 2:
-                string loginname,password = "empty";
-                Console.WriteLine("Логин :");
-                loginname = Console.ReadLine();
-                auth(loginname,password);//логинимся
-				if(getcheck())
-				{
-                	act();
-				}
-				else
-				{
-					Console.WriteLine("Ошибка авторизации!");
-				}
+                    string loginname,password = "empty";
+                    Console.WriteLine("Логин: ");
+                    loginname = Console.ReadLine();
+                    Console.WriteLine("Пароль: ");
+                    password = Console.ReadLine();
+                    auth(loginname,password);
+				    if(getcheck())
+				    {
+                	    act();
+				    }
+				    else
+				    {
+					    Console.WriteLine("Ошибка авторизации!");
+				    }
                 break;
 
                 case 3:
-                Console.WriteLine("Досвидания!");
+                    Console.WriteLine("Досвидания!");
                 break;
 
             };
@@ -64,8 +77,8 @@ namespace Client
                 Console.WriteLine("Здравствуйте !");
                 Console.WriteLine("");
                 Console.WriteLine("Отправить сообщение --- 1");
-				Console.WriteLine("Просмотр почты _____--- 2");
-                Console.WriteLine("Выйти ----------------  3");
+				Console.WriteLine("Просмотр почты -------- 2");
+                Console.WriteLine("Выйти ----------------- 3");
 
                 int caseSwitch = Convert.ToInt32(Console.ReadLine());
                 switch (caseSwitch)
@@ -82,7 +95,6 @@ namespace Client
                     case 2:
 					Console.WriteLine("Запрос на просмотр почты!");
 					getmail();
-					Console.ReadLine();
                         break;
 					case 3:
                         flag = true;
@@ -90,7 +102,7 @@ namespace Client
 
 
                 }
-                Console.WriteLine("\n Нажмите любую клавишу...");
+                Console.WriteLine("Нажмите любую клавишу...");
                 Console.ReadLine();
                 if (flag)
                     break;
@@ -103,8 +115,17 @@ namespace Client
 		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");         
 		    NetworkStream stream = client.GetStream();
 		    stream.Write(data, 0, data.Length);
-
-
+            String answ;
+            while (true)
+            {
+                answ = null;
+                data = new byte[256];
+                stream.Read(data, 0, data.Length);
+                answ = Encoding.UTF8.GetString(data);
+                Console.WriteLine(answ);
+                if (answ.IndexOf("</read>") != -1)
+                    break;
+            }
 		}
 
 		public static bool getcheck ()
@@ -140,7 +161,7 @@ namespace Client
             }
         }
 
-		static void stop ()
+		public static void stop ()
 		{
 		  try 
 		  {
@@ -163,7 +184,7 @@ namespace Client
 		}
 
 
-		static void auth (String name, String password)
+		public static void auth (String name, String password)
 		{
 
 		  try 
@@ -185,7 +206,7 @@ namespace Client
           
 	 }
 
-		static void message(String message,String to) 
+		public static void message(String message,String to) 
 		{
 		 try 
 		  {

@@ -16,6 +16,18 @@ namespace test
 			message=Message;
 			check=false;
 		}
+        public String getto()
+        {
+            return to;
+        }
+        public String getmessage()
+        {
+            return message;
+        }
+        public String getfrom()
+        {
+            return from;
+        }
 	}
 }
 
