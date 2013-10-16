@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="test/Client.cs">
+    <Files>
+      <File FileName="test/Client.cs" Line="15" Column="27" />
+      <File FileName="test/Message.cs" Line="4" Column="2" />
+      <File FileName="test/AssemblyInfo.cs" Line="6" Column="1" />
+      <File FileName="test/Server.cs" Line="1" Column="1" />
+      <File FileName="test/Main.cs" Line="16" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
