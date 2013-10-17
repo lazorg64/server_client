@@ -122,7 +122,7 @@ namespace test
                 if (m.getto() == username)
                 {
                     buffer = new byte[256];
-                    buffer = System.Text.Encoding.UTF8.GetBytes("Сообщение : " + m.getmessage() + "\nОт :" + m.getfrom() + ".");
+                    buffer = System.Text.Encoding.UTF8.GetBytes("Сообщение : " + m.getmessage() + "    От :" + m.getfrom() + ".");
                     Client.GetStream().Write(buffer, 0, buffer.Length);
                     buffer = new byte[256];
                 }

@@ -2,7 +2,6 @@ using System;
 using System.Net.Sockets;
 using System.IO;
 using System.Text;
-
 namespace Client
 {
    
@@ -70,47 +69,73 @@ namespace Client
 
         static void act()
         {
-            bool flag = false;
+            
+                bool flag = false;
+                while (true)
+                {
+                   
+                        Console.Clear();
+                        Console.WriteLine("Здравствуйте !");
+                        Console.WriteLine("");
+                        Console.WriteLine("Отправить сообщение --- 1");
+                        Console.WriteLine("Просмотр почты -------- 2");
+                        Console.WriteLine("Выйти ----------------- 3");
+                       // for (; ; )
+                      //  {
+                       //     newmail();
+                       // }
+                        int caseSwitch = Convert.ToInt32(Console.ReadLine());
+                        switch (caseSwitch)
+                        {
+                            case 1:
+                                Console.WriteLine("Кому отправить сообщение ?");
+                                string name, mes;
+                                name = Console.ReadLine();
+                                Console.WriteLine("Сообщение :");
+                                mes = Console.ReadLine();
+                                message(mes, name);
+                                Console.WriteLine("Cообщение отправленно " + name + "");
+                                break;
+                            case 2:
+                                Console.WriteLine("Запрос на просмотр почты!");
+                                getmail();
+                                break;
+                            case 3:
+                                flag = true;
+                                break;
+                        }
+                        Console.WriteLine("Нажмите любую клавишу...");
+                        Console.ReadLine();
+                        if (flag)
+                            break;
+
+                    }
+                
+        }
+        
+        public static void newmail()
+        {
+            Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");
+            NetworkStream stream = client.GetStream();
+            stream.Write(data, 0, data.Length);
+            String answ;
             while (true)
             {
+                answ = null;
+                data = new byte[256];              
+               
+                stream.BeginRead(data, 0, data.Length, readResult => { answ = Encoding.UTF8.GetString(data);},null);
                 
-                   Console.Clear();
-                   Console.WriteLine("Здравствуйте !");
-                   Console.WriteLine("");
-                   Console.WriteLine("Отправить сообщение --- 1");
-		           Console.WriteLine("Просмотр почты -------- 2");
-                   Console.WriteLine("Выйти ----------------- 3");
-                
-                   
-                   int caseSwitch = Convert.ToInt32(Console.ReadLine());
-                   switch (caseSwitch)
-                   {
-                    case 1:
-                        Console.WriteLine("Кому отправить сообщение ?");
-                        string name, mes;
-                        name = Console.ReadLine();
-                        Console.WriteLine("Сообщение :");
-                        mes = Console.ReadLine();
-                        message(mes, name);
-                        Console.WriteLine("Cообщение отправленно " + name + "");
-                        break;
-                    case 2:
-					Console.WriteLine("Запрос на просмотр почты!");
-					getmail();
-                        break;
-					case 3:
-                        flag = true;
-                        break;
-                   }
-                    Console.WriteLine("Нажмите любую клавишу...");
-                    Console.ReadLine();
-                    if (flag)
-                        break;
-                
+                if(answ!=null)
+                {
+                Console.WriteLine("новое сообщение");
+                break;
+                }
+                if (answ.IndexOf("</read>") != -1)
+                    break;
             }
-            
         }
-
+        
 		public static void getmail ()
 		{
 		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");         
