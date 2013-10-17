@@ -1,0 +1,6 @@
+﻿<name>User1</name><pass>1234</pass>
+<name>UserName</name><pass>1234</pass>
+<name>username1</name><pass>1234</pass>
+<name>username2</name><pass>1234</pass>
+<name>usernameA</name><pass>1234</pass>
+<name>usernameB</name><pass>1234</pass>

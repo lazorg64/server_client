@@ -20,3 +20,5 @@ C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\test.pdb
 C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.exe
 C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.pdb
 C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\server_client\С#\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Documents\GitHub\server_client\С#\test\test\obj\x86\Debug\test.pdb

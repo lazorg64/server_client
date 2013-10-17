@@ -1,0 +1,31 @@
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\bin\Debug\test.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\bin\Debug\test.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\test.exe
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Downloads\test\test\test\bin\Debug\test.exe
+C:\Users\lazorg\Downloads\test\test\test\bin\Debug\test.pdb
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.exe
+C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.pdb
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\server_client\С#\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Documents\GitHub\server_client\С#\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\test.exe
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\test.pdb
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.dll
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.pdb
+C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache

@@ -1,0 +1,2 @@
+﻿<name>UserName1</name><pass>12345</pass>
+<name>UserName2</name><pass>09876</pass>

@@ -1,0 +1,14 @@
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\bin\Debug\test.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\bin\Debug\test.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Documents\Visual Studio 2010\Projects\laba1\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\test.exe
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Downloads\test\test\test\bin\Debug\test.exe
+C:\Users\lazorg\Downloads\test\test\test\bin\Debug\test.pdb
+C:\Users\lazorg\Downloads\test\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\lab\test\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Desktop\LEXA\test\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\LEXA\test\test\test\obj\x86\Debug\test.pdb

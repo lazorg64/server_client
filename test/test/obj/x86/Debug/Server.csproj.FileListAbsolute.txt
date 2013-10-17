@@ -15,3 +15,11 @@ C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\test.pdb
 C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.exe
 C:\Users\lazorg\Documents\GitHub\server_client\test\test\bin\Debug\test.pdb
 C:\Users\lazorg\Documents\GitHub\server_client\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
+=======
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\test.exe
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\test.pdb
+C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.exe
+C:\Users\Lenovo\Desktop\LEXA\test\test\bin\Debug\test.pdb
+C:\Users\Lenovo\Desktop\LEXA\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+>>>>>>> adb03089d6c3267ad52c5c77f20ff16070f3ea95
