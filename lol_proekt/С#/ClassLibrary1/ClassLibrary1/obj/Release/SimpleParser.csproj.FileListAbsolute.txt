@@ -1,0 +1,4 @@
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\bin\Release\ClassLibrary1.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\obj\Release\ClassLibrary1.pdb

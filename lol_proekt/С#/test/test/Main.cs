@@ -1,6 +1,6 @@
 using System;
 
-namespace test
+namespace ServerNamespace
 {
 	class MainClass
 	{

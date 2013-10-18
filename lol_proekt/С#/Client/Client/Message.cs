@@ -1,9 +1,10 @@
 using System;
 
-namespace ServerNamespace
+namespace ClientNamespace
 {
 	public class Message
 	{
+
 		private String from;
 		private String to;
 		private String message;

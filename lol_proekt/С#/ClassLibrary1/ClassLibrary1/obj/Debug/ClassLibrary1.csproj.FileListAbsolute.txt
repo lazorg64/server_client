@@ -2,3 +2,8 @@ c:\users\lenovo\documents\visual studio 2010\Projects\ClassLibrary1\ClassLibrary
 c:\users\lenovo\documents\visual studio 2010\Projects\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
 c:\users\lenovo\documents\visual studio 2010\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
 c:\users\lenovo\documents\visual studio 2010\Projects\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\ClassLibrary1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

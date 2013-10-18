@@ -27,3 +27,10 @@ C:\Users\Lenovo\Desktop\lol_proekt\С#\Client\Client\obj\x86\Debug\Client.pdb
 C:\Users\Lenovo\Desktop\lol_proekt\С#\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Desktop\lol_proekt\С#\Client\Client\bin\Debug\Client.exe
 C:\Users\Lenovo\Desktop\lol_proekt\С#\Client\Client\bin\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\obj\x86\Debug\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\obj\x86\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Debug\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Debug\Client.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Debug\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Debug\ClassLibrary1.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-//namespace ClassLibrary1
-//{
+
     public class Parsing
     {
         public static String getname(String input)
@@ -43,15 +42,35 @@ using System.Text;
             else
                 return input.Substring(pos1 + 9, pos2 - pos1 - 9);
         }
-        public static String getto(String to)
+        public static String getto(String input)
         {
-            int pos = to.IndexOf("<to>");
-            int pos2 = to.IndexOf("</to>");
+            int pos = input.IndexOf("<to>");
+            int pos2 = input.IndexOf("</to>");
             if (pos == -1 || pos2 == -1)
                 return "Ошибка парсинга";
             else
-                return to.Substring(pos + 4, pos2 - pos - 4);
+                return input.Substring(pos + 4, pos2 - pos - 4);
+        }
+        public static String getfrom(String input)
+        {
+            int pos = input.IndexOf("<from>");
+            int pos2 = input.IndexOf("</from>");
+            if (pos == -1 || pos2 == -1)
+                return "Ошибка парсинга";
+            else
+                return input.Substring(pos + 6, pos2 - pos - 6);
+        }
+        public static String getAny(String input, String search)
+        {
+            String se1 = "<" + search + ">";
+            String se2 = "</" + search + ">";
+            int pos = input.IndexOf(se1);
+            int pos2 = input.IndexOf(se2);
+            if (pos == -1 || pos2 == -1)
+                return "Ошибка парсинга";
+            else
+                return input.Substring(pos + search.Length + 2, pos2 - pos - (search.Length + 2));
         }
 
     }
-//}
+

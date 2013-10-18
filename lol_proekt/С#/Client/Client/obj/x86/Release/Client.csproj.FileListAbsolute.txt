@@ -1,0 +1,5 @@
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\obj\x86\Release\Client.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Release\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\obj\x86\Release\Client.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Release\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\Client\Client\bin\Release\ClassLibrary1.pdb

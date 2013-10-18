@@ -29,3 +29,10 @@ C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\test.pdb
 C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.dll
 C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.pdb
 C:\Users\Lenovo\Desktop\lol_proekt\С#\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\obj\x86\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\obj\x86\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\bin\Debug\test.exe
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\bin\Debug\test.pdb
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\obj\x86\Debug\Server.csprojResolveAssemblyReference.cache
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.dll
+C:\Users\lazorg\Documents\GitHub\server_client\lol_proekt\С#\test\test\bin\Debug\ClassLibrary1.pdb

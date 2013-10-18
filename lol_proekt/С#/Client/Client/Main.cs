@@ -3,49 +3,49 @@ using System.Net.Sockets;
 using System.IO;
 using System.Text;
 using System.Threading;
+using System.Collections.Generic;
  
-namespace Client
+namespace ClientNamespace
 {
    
 	class MainClass
 	{
-        
-		static TcpClient client;
-		static Byte [] newdata;
+		private static TcpClient MyClient;
+		private static Byte [] ReadBuff;
+        private static String Username;
+        private static List<Message> MessageBuffer = new List<Message>();
+        private static bool Active;
+        private static bool Auth;
 		public static void Main (string[] args)
 		{
-
-
-            Console.WriteLine("Клиент запущен!");
+            Auth = false;
             Console.WriteLine("Укажите адрес сервера:");
-            String server_addr = Console.ReadLine();
-            client = new TcpClient(server_addr, 1235);
-            Console.WriteLine("Зарегистрироваться --- 1");
-            Console.WriteLine("Войти ---------------- 2");
-            Console.WriteLine("Выйти ---------------- 3");
-            Console.WriteLine("Ваш выбор :");
-			newmail();
+            String server_addr = "127.0.0.1";//= Console.ReadLine();
+            Console.Clear();
+            MyClient = new TcpClient(server_addr, 1235);
+            printMenu();
+			startListening();
             int caseSwitch = Convert.ToInt32(Console.ReadLine());
+            string login, password;
             switch (caseSwitch)
             {
-                case 1:
-                    string login,passw;
-                    Console.WriteLine("Логин: ");
+                case 1: 
+                    Console.Write("Логин: ");
                     login = Console.ReadLine();
-                    Console.WriteLine("Пароль: ");
-                    passw = Console.ReadLine();
-                    reg(login,passw);
+                    Username = login;
+                    Console.Write("Пароль: ");
+                    password = Console.ReadLine();
+                    registerUser(login, password);
 					act ();
-
                 break;
 
                 case 2:
-                    string loginname,password;
                     Console.WriteLine("Логин: ");
-                    loginname = Console.ReadLine();
+                    login = Console.ReadLine();
+                    Username = login;
                     Console.WriteLine("Пароль: ");
                     password = Console.ReadLine();
-                    auth(loginname,password);		
+                    auth(login,password);		
 					act();
 
                 break;
@@ -55,31 +55,33 @@ namespace Client
                 break;
 
             };
-			stop();
+			finish();
 		}
 
 
-        static void act()
+        public static void printMenu()
         {
-            
-                bool flag = false;
-                while (true)
+            Console.WriteLine("Зарегистрироваться --- [1]");
+            Console.WriteLine("Войти ---------------- [2]");
+            Console.WriteLine("Выйти ---------------- [3]");
+            Console.WriteLine("Ваш выбор :");
+        }
+
+        public static void act()
+        {
+                Active = true;
+                while (Active)
                 {
-                   
+                    Thread.Sleep(10);
                         Console.Clear();
-                        Console.WriteLine("Здравствуйте !");
+                        Console.WriteLine("Здравствуйте " + Username + "!");
+                        Console.WriteLine("Отправить сообщение -------------- [1]");
+                        Console.WriteLine("Посмотреть входящие сообщения ---- [2]");
+                        Console.WriteLine("Выйти ---------------------------- [3]");
                         Console.WriteLine("");
-                        Console.WriteLine("Отправить сообщение --- 1");
-                        Console.WriteLine("Просмотр почты -------- 2");
-                        Console.WriteLine("Выйти ----------------- 3");
-						String str1 = Encoding.UTF8.GetString(newdata);
-						if(str1.IndexOf("<message>")!=-1)
-						{
-						Console.WriteLine("Есть новые сообщения!");
-						str1=null;
-						newdata = new byte[256];
-						}
+
                         int caseSwitch = Convert.ToInt32(Console.ReadLine());
+                        //Console.Clear();
                         switch (caseSwitch)
                         {
                             case 1:
@@ -88,100 +90,77 @@ namespace Client
                                 name = Console.ReadLine();
                                 Console.WriteLine("Сообщение :");
                                 mes = Console.ReadLine();
-                                message(mes, name);
+                                sendMessage(mes, name);
                                 Console.WriteLine("Cообщение отправленно " + name + "");
                                 break;
                             case 2:
-                                Console.WriteLine("Запрос на просмотр почты!");
-                                getmail();
+                                readMessages();
                                 break;
                             case 3:
-                                flag = true;
+                                Active = false;
                                 break;
-							case 4:
+                            default:
 								break;
                         }
-                        Console.WriteLine("Нажмите любую клавишу...");
-                        Console.ReadLine();
-                        if (flag)
-                            break;
-
                     }
+                Console.WriteLine("Для завершения работы нажмите любую клавишу...");
+                Console.ReadLine();
                 
         }
         
-        public static void newmail ()
-		{
-
-			NetworkStream stream = client.GetStream ();
-
-			newdata = new byte[256];
-           
-               
-			stream.BeginRead (newdata, 0, newdata.Length, new AsyncCallback (myCallBack), client);
-
-
-            
+        public static void startListening () {
+			NetworkStream stream = MyClient.GetStream ();
+			ReadBuff = new Byte[512];
+			stream.BeginRead (ReadBuff, 0, ReadBuff.Length, new AsyncCallback (listenerCallback), MyClient);
         }
 
-		public static void myCallBack (IAsyncResult ar)
+		public static void listenerCallback (IAsyncResult ar)
 		{
+            Thread.Sleep(10);
 			TcpClient cli = (TcpClient)ar.AsyncState;
 			cli.GetStream().EndRead(ar);
-			Console.Write("#");
-
-			String str1 = Encoding.UTF8.GetString(newdata);
-			Console.WriteLine(str1);
-			//Byte[] data = new byte[256];  
-
-
-			newdata = new byte[256];
-		
-
-			cli.GetStream().BeginRead(newdata, 0, newdata.Length,new AsyncCallback(myCallBack) ,cli);
+			String str1 = Encoding.UTF8.GetString(ReadBuff);
+            if (str1.IndexOf("<auth>OK</auth>") != -1)
+            {
+                Console.WriteLine("Успешная авторизация!");
+                Auth = true;
+            }
+            if (str1.IndexOf("<message>") != -1)
+            {
+                Console.WriteLine("Получено входящее сообщение!");
+                MessageBuffer.Add(new Message(Parsing.getfrom(str1), Parsing.getto(str1), Parsing.getmessage(str1)));
+            }
+            if(Active)
+			cli.GetStream().BeginRead(ReadBuff, 0, ReadBuff.Length,new AsyncCallback(listenerCallback) ,cli);
 		}
         
-		public static void getmail ()
+		public static void readMessages ()
 		{
-		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");         
-		    NetworkStream stream = client.GetStream();
-		    stream.Write(data, 0, data.Length);
-
-            String answ;
-            while (true)
+            Console.Clear();
+            Console.WriteLine("----- Входящие сообщения ------------");
+            Console.WriteLine("");
+            foreach (Message m in MessageBuffer)
             {
-                answ = null;
-                data = new byte[256];
-                stream.Read(data, 0, data.Length);
-                answ = Encoding.UTF8.GetString(data);
-                Console.WriteLine(answ);
-                if (answ.IndexOf("</read>") != -1)
-                    break;
+                Console.Write("Отправитель: ["+m.getfrom()+"]    ");
+                Console.Write("Адресат: [" + m.getfrom()+"]\n");
+                Console.WriteLine("-------------------------------------");
+                Console.WriteLine(m.getmessage());
+                Console.WriteLine("-------------------------------------");
             }
+            Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+            Console.ReadLine();
             
 		}
 
-		public static bool getcheck ()
-		{
-			Byte[] buffer = new byte[256];
-			client.GetStream ().Read (buffer, 0, buffer.Length);
-			String answ = Encoding.UTF8.GetString (buffer);
-			Console.WriteLine (answ);
-			if (answ.IndexOf("<auth>OK</auth>")!=-1) {
-				return true;
-			} else {
-				return false;
-			}
-
-		}
-
-        public static void reg(String username,String password)
+        public static void registerUser(String username,String password)
         {
             try
             {
-                Byte[] data = System.Text.Encoding.UTF8.GetBytes("<reg><name>" + username + "</name><pass>"+password+"</pass></reg>");
-                NetworkStream stream = client.GetStream();
+                Byte[] data = new Byte[512];
+                data = System.Text.Encoding.UTF8.GetBytes("<reg><name>" + username + "</name><pass>"+password+"</pass></reg>");
+                NetworkStream stream = MyClient.GetStream();
                 stream.Write(data, 0, data.Length);
+
 
             }
             catch (ArgumentNullException e)
@@ -194,57 +173,47 @@ namespace Client
             }
         }
 
-		public static void stop ()
+		public static void finish()
 		{
-		  try 
-		  {
-		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<end>");         
-		    NetworkStream stream = client.GetStream();
-		    stream.Write(data, 0, data.Length);
-
-		  } 
-		  catch (ArgumentNullException e) 
-		  {
-		    Console.WriteLine("ArgumentNullException: {0}", e);
-		  } 
-		  catch (SocketException e) 
-		  {
-		    Console.WriteLine("SocketException: {0}", e);
-		  }
-
-		  Console.WriteLine("\n Для выхода нажмите любую клавишу...");
-          Console.ReadLine();
+		     try {
+		     Byte[] data = System.Text.Encoding.UTF8.GetBytes("<end>");         
+		     NetworkStream stream = MyClient.GetStream();
+		     stream.Write(data, 0, data.Length);
+		     } 
+		     catch (ArgumentNullException e) {
+		     Console.WriteLine("ArgumentNullException: {0}", e);
+		     } 
+		     catch (SocketException e) {
+		     Console.WriteLine("SocketException: {0}", e);
+		     }
+		     Console.WriteLine("\nДля выхода нажмите любую клавишу...");
+             Console.ReadLine();
 		}
 
 
 		public static void auth (String name, String password)
 		{
+		     try{
+                 Byte[] data = new Byte[512];
+                data = System.Text.Encoding.UTF8.GetBytes("<login><name>"+name+"</name><pass>"+password+"</pass><login>");         
+		     NetworkStream stream = MyClient.GetStream();
+		     stream.Write(data, 0, data.Length);
 
-		  try 
-		  {
-		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<login><name>"+name+"</name><pass>"+password+"</pass><login>");         
-		    NetworkStream stream = client.GetStream();
-		    stream.Write(data, 0, data.Length);
+		     } 
+		     catch (ArgumentNullException e) {
+		     Console.WriteLine("ArgumentNullException: {0}", e);
+		     } 
+		     catch (SocketException e) {
+		     Console.WriteLine("SocketException: {0}", e);
+		     }
+        }
 
-		  } 
-		  catch (ArgumentNullException e) 
-		  {
-		    Console.WriteLine("ArgumentNullException: {0}", e);
-		  } 
-		  catch (SocketException e) 
-		  {
-		    Console.WriteLine("SocketException: {0}", e);
-		  }
-
-          
-	 }
-
-		public static void message(String message,String to) 
+		public static void sendMessage(String message,String to) 
 		{
 		 try 
 		  {
 		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<send><message>"+message+"</message><to>"+to+"</to></send>");         
-		    NetworkStream stream = client.GetStream();
+		    NetworkStream stream = MyClient.GetStream();
 		    stream.Write(data, 0, data.Length);      
 		             
 		  } 
@@ -256,12 +225,6 @@ namespace Client
 		  {
 		    Console.WriteLine("SocketException: {0}", e);
 		  }
-
-
-
 		}
-        
-
     }
-	
 }
