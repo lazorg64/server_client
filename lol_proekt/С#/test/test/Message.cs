@@ -28,6 +28,14 @@ namespace test
         {
             return from;
         }
+		public bool isCheck()
+		{
+			return check;
+		}
+		public void setCheck(bool input)
+		{
+			check = input;
+		}
 	}
 }
 

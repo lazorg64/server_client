@@ -2,11 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="test/Client.cs">
     <Files>
-      <File FileName="test/Client.cs" Line="127" Column="2" />
-      <File FileName="test/Message.cs" Line="4" Column="2" />
+      <File FileName="test/Client.cs" Line="173" Column="48" />
+      <File FileName="test/Message.cs" Line="37" Column="18" />
       <File FileName="test/AssemblyInfo.cs" Line="6" Column="1" />
-      <File FileName="test/Server.cs" Line="40" Column="3" />
-      <File FileName="test/Main.cs" Line="17" Column="6" />
+      <File FileName="test/Server.cs" Line="6" Column="1" />
+      <File FileName="test/Main.cs" Line="17" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

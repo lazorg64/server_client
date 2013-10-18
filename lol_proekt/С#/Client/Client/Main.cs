@@ -2,6 +2,8 @@ using System;
 using System.Net.Sockets;
 using System.IO;
 using System.Text;
+using System.Threading;
+ 
 namespace Client
 {
    
@@ -9,8 +11,9 @@ namespace Client
 	{
         
 		static TcpClient client;
+		static Byte [] newdata;
 		public static void Main (string[] args)
-		{//первое окошко
+		{
 
 
             Console.WriteLine("Клиент запущен!");
@@ -21,6 +24,7 @@ namespace Client
             Console.WriteLine("Войти ---------------- 2");
             Console.WriteLine("Выйти ---------------- 3");
             Console.WriteLine("Ваш выбор :");
+			newmail();
             int caseSwitch = Convert.ToInt32(Console.ReadLine());
             switch (caseSwitch)
             {
@@ -31,31 +35,19 @@ namespace Client
                     Console.WriteLine("Пароль: ");
                     passw = Console.ReadLine();
                     reg(login,passw);
-                    if (getcheck())
-                    {
-                        act();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ошибка авторизации!");
-                    }
+					act ();
+
                 break;
 
                 case 2:
-                    string loginname,password = "empty";
+                    string loginname,password;
                     Console.WriteLine("Логин: ");
                     loginname = Console.ReadLine();
                     Console.WriteLine("Пароль: ");
                     password = Console.ReadLine();
-                    auth(loginname,password);
-				    if(getcheck())
-				    {
-                	    act();
-				    }
-				    else
-				    {
-					    Console.WriteLine("Ошибка авторизации!");
-				    }
+                    auth(loginname,password);		
+					act();
+
                 break;
 
                 case 3:
@@ -80,10 +72,13 @@ namespace Client
                         Console.WriteLine("Отправить сообщение --- 1");
                         Console.WriteLine("Просмотр почты -------- 2");
                         Console.WriteLine("Выйти ----------------- 3");
-                       // for (; ; )
-                      //  {
-                       //     newmail();
-                       // }
+						String str1 = Encoding.UTF8.GetString(newdata);
+						if(str1.IndexOf("<message>")!=-1)
+						{
+						Console.WriteLine("Есть новые сообщения!");
+						str1=null;
+						newdata = new byte[256];
+						}
                         int caseSwitch = Convert.ToInt32(Console.ReadLine());
                         switch (caseSwitch)
                         {
@@ -103,6 +98,8 @@ namespace Client
                             case 3:
                                 flag = true;
                                 break;
+							case 4:
+								break;
                         }
                         Console.WriteLine("Нажмите любую клавишу...");
                         Console.ReadLine();
@@ -113,34 +110,43 @@ namespace Client
                 
         }
         
-        public static void newmail()
-        {
-            Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");
-            NetworkStream stream = client.GetStream();
-            stream.Write(data, 0, data.Length);
-            String answ;
-            while (true)
-            {
-                answ = null;
-                data = new byte[256];              
+        public static void newmail ()
+		{
+
+			NetworkStream stream = client.GetStream ();
+
+			newdata = new byte[256];
+           
                
-                stream.BeginRead(data, 0, data.Length, readResult => { answ = Encoding.UTF8.GetString(data);},null);
-                
-                if(answ!=null)
-                {
-                Console.WriteLine("новое сообщение");
-                break;
-                }
-                if (answ.IndexOf("</read>") != -1)
-                    break;
-            }
+			stream.BeginRead (newdata, 0, newdata.Length, new AsyncCallback (myCallBack), client);
+
+
+            
         }
+
+		public static void myCallBack (IAsyncResult ar)
+		{
+			TcpClient cli = (TcpClient)ar.AsyncState;
+			cli.GetStream().EndRead(ar);
+			Console.Write("#");
+
+			String str1 = Encoding.UTF8.GetString(newdata);
+			Console.WriteLine(str1);
+			//Byte[] data = new byte[256];  
+
+
+			newdata = new byte[256];
+		
+
+			cli.GetStream().BeginRead(newdata, 0, newdata.Length,new AsyncCallback(myCallBack) ,cli);
+		}
         
 		public static void getmail ()
 		{
 		    Byte[] data = System.Text.Encoding.UTF8.GetBytes("<read>");         
 		    NetworkStream stream = client.GetStream();
 		    stream.Write(data, 0, data.Length);
+
             String answ;
             while (true)
             {
@@ -152,6 +158,7 @@ namespace Client
                 if (answ.IndexOf("</read>") != -1)
                     break;
             }
+            
 		}
 
 		public static bool getcheck ()
